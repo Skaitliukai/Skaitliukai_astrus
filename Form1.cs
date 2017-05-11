@@ -107,7 +107,7 @@ namespace Skaitliukai_astrus
             Utility.deleteTempImage();
             Console.WriteLine(skaitliukas.Number);
 
-            //DataLayer.insertRecord(skaitliukas);
+            DataLayer.insertRecord(skaitliukas);
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
