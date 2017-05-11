@@ -26,6 +26,18 @@ namespace Skaitliukai_astrus
                 Directory.CreateDirectory(Path.Combine(dir, ConfigurationManager.AppSettings["CroppedImagesFolder"]));
         }
 
+        //Išsaugom foto laikinai - apdirbimui
+        public static void saveTempImage(string source)
+        {
+            File.Copy(source, Path.Combine(Directory.GetCurrentDirectory(), "temp.png"), true);
+        }
+
+        //Pašalinam laikiną foto
+        public static void deleteTempImage()
+        {
+            File.Delete(Path.Combine(Directory.GetCurrentDirectory(), "temp.png"));
+        }
+
         //Dujų skaitliuką reik paversti į negatyvą
         public static void Negate(Bitmap image)
         {

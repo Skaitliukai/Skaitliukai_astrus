@@ -10,20 +10,25 @@ namespace Skaitliukai_astrus
 {
     class Skaitliukas
     {
-        private string path_imageFull;
+        private int id;
+        private string path_imageFull = null;
         private string path_imageCropped = null;
         private string fileName;
         private string fileType;
         private int type_id;    // 0 - dujų, 1 - elektros
-        private string number;
+        private double number;
         private string username;
+        private DateTime date_created;
 
         public Skaitliukas (string path, int type)
-        {         
+        {
+            Random rnd = new Random();
+            int id = rnd.Next(1111111, 9999999);
             fileName = Path.GetFileNameWithoutExtension(path);
             fileType = Path.GetExtension(path);
             type_id = type;
             username = "Naudotojas";
+            date_created = DateTime.Now;
             path_imageFull = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), ConfigurationManager.AppSettings["ImagesFolder"]), fileName + fileType);
             File.Copy(path, path_imageFull, true);
         }
@@ -55,7 +60,7 @@ namespace Skaitliukai_astrus
             }
         }
 
-        public string Number
+        public double Number
         {
             get
             {
@@ -72,6 +77,38 @@ namespace Skaitliukai_astrus
             get
             {
                 return username;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+        }
+
+        public string TipoPavadinimas
+        {
+            get
+            {
+                switch (type_id)
+                {
+                    case 0:
+                        return "dujų";
+                    case 1:
+                        return "elektros";
+                    default:
+                        return "nežinomas";
+                }
+            }
+        }
+
+        public DateTime DateCreated
+        {
+            get
+            {
+                return date_created;
             }
         }
     }

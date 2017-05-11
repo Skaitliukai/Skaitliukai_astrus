@@ -34,6 +34,9 @@
             this.mi_newElec = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_crop = new System.Windows.Forms.ToolStripMenuItem();
             this.ofd_image = new System.Windows.Forms.OpenFileDialog();
+            this.mi_size = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_save = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_saveOriginal = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,15 +76,39 @@
             // 
             // mi_crop
             // 
+            this.mi_crop.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mi_size,
+            this.mi_save,
+            this.mi_saveOriginal});
             this.mi_crop.Name = "mi_crop";
             this.mi_crop.Size = new System.Drawing.Size(61, 20);
             this.mi_crop.Text = "Apkirpti";
-            this.mi_crop.Click += new System.EventHandler(this.mi_crop_Click);
             // 
             // ofd_image
             // 
             this.ofd_image.Filter = "png (*.png)|*.png|jpg (*.jpg)|*.jpg";
             this.ofd_image.Title = "Pasirinkite skaitliuko nuotrauką";
+            // 
+            // mi_size
+            // 
+            this.mi_size.Name = "mi_size";
+            this.mi_size.Size = new System.Drawing.Size(185, 22);
+            this.mi_size.Text = "Pasirinkti dydį";
+            this.mi_size.Click += new System.EventHandler(this.mi_size_Click);
+            // 
+            // mi_save
+            // 
+            this.mi_save.Name = "mi_save";
+            this.mi_save.Size = new System.Drawing.Size(185, 22);
+            this.mi_save.Text = "Išsaugoti pasirinkimą";
+            this.mi_save.Click += new System.EventHandler(this.mi_save_Click);
+            // 
+            // mi_saveOriginal
+            // 
+            this.mi_saveOriginal.Name = "mi_saveOriginal";
+            this.mi_saveOriginal.Size = new System.Drawing.Size(185, 22);
+            this.mi_saveOriginal.Text = "Dirbti su originalu";
+            this.mi_saveOriginal.Click += new System.EventHandler(this.mi_saveOriginal_Click);
             // 
             // Form1
             // 
@@ -92,6 +119,11 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Skaitliukai";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -107,6 +139,9 @@
         private System.Windows.Forms.ToolStripMenuItem mi_newElec;
         private System.Windows.Forms.ToolStripMenuItem mi_crop;
         private System.Windows.Forms.OpenFileDialog ofd_image;
+        private System.Windows.Forms.ToolStripMenuItem mi_size;
+        private System.Windows.Forms.ToolStripMenuItem mi_save;
+        private System.Windows.Forms.ToolStripMenuItem mi_saveOriginal;
     }
 }
 
