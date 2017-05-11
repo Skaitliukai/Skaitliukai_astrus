@@ -23,12 +23,12 @@ namespace Skaitliukai_astrus
         public Skaitliukas (string path, int type)
         {
             Random rnd = new Random();
-            int id = rnd.Next(1111111, 9999999);
+            id = rnd.Next(1111111, 9999999);
             fileName = Path.GetFileNameWithoutExtension(path);
             fileType = Path.GetExtension(path);
             type_id = type;
             username = "Naudotojas";
-            date_created = DateTime.Now;
+            date_created = DateTime.Now.;
             path_imageFull = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), ConfigurationManager.AppSettings["ImagesFolder"]), fileName + fileType);
             File.Copy(path, path_imageFull, true);
         }
@@ -95,11 +95,11 @@ namespace Skaitliukai_astrus
                 switch (type_id)
                 {
                     case 0:
-                        return "dujų";
+                        return "Dujos";
                     case 1:
-                        return "elektros";
+                        return "Elektra";
                     default:
-                        return "nežinomas";
+                        return "Nežinomas";
                 }
             }
         }

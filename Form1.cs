@@ -108,6 +108,7 @@ namespace Skaitliukai_astrus
             Console.WriteLine(skaitliukas.Number);
 
             DataLayer.insertRecord(skaitliukas);
+            Console.WriteLine("job done");
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)

@@ -14,7 +14,7 @@ namespace Skaitliukai_astrus
             SqlConnection con = new SqlConnection("Server=skaitliukai.database.windows.net, 1433; Database=Skaitliukai;Uid=skaitliukai;Pwd=Loxlox123;");
             con.Open();
 
-            String query = "INSERT INTO Skaitliukai VALUES ('" + s.Id + "', '" + s.TypeId + "' , '" + s.Number + "', '" + s.Username + "' );";
+            String query = "INSERT INTO Skaitliukai VALUES ('" + s.Id + "', '" + s.TipoPavadinimas + "' , '" + s.Number + "', '" + s.Username + "' );";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
 
